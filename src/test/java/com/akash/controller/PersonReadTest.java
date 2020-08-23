@@ -12,7 +12,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /**
- * (1) @RunWith(SpringRunner.class)
+ * https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testcontext-ctx-management-caching
+ *
+ * <p>(1) @RunWith(SpringRunner.class)
  *
  * <p>If a JUnit class or its parent class is annotated with @RunWith, JUnit framework invokes the
  * specified class as a test runner instead of running the default runner. A Runner class is
@@ -30,6 +32,14 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * <p>(3) Use @MockBean to mock a bean via SpringRunner
  *
  * <p>(4) Other useful annotations : @BeforeClass , @Before, @AfterClass, @After
+ */
+
+/**
+ * Only test suites are allowed to run using maven-surefire-plugin and not all test cases. Test
+ * Suites will help to load spring context only once for all test classes having @SpringBootTest.
+ *
+ * <p>// @RunWith(JUnitPlatform.class) // @SelectClasses({PersonReadTest.class,
+ * PersonWriteTest.class})
  */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SpringUtApplication.class)
