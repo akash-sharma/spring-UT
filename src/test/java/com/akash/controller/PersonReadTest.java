@@ -3,13 +3,18 @@ package com.akash.controller;
 import com.akash.SpringUtApplication;
 import com.akash.dao.master.PersonDao;
 import com.akash.entity.Person;
+import org.cassandraunit.spring.CassandraUnit;
+import org.cassandraunit.spring.CassandraUnitTestExecutionListener;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.springframework.test.context.TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS;
 
 /**
  * https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testcontext-ctx-management-caching
@@ -44,6 +49,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SpringUtApplication.class)
 @ActiveProfiles("test")
+@TestExecutionListeners(
+    listeners = CassandraUnitTestExecutionListener.class,
+    mergeMode = MERGE_WITH_DEFAULTS)
+@CassandraUnit
 public class PersonReadTest {
 
   @Autowired private PersonController personController;
