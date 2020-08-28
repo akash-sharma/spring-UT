@@ -41,3 +41,10 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.ht
 
 logging.level.org.springframework.test.context.cache=DEBUG
 
+
+
+## elastic search embedded server ##
+
+https://www.thetopsites.net/article/52581662.shtml
+
+https://stackoverflow.com/questions/30675654/elasticsearch-spring-boot-integration-test
