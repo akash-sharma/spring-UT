@@ -43,8 +43,21 @@ logging.level.org.springframework.test.context.cache=DEBUG
 
 
 
-## elastic search embedded server ##
+## elastic search embedded server for spring integration testing ##
 
 https://www.thetopsites.net/article/52581662.shtml
 
 https://stackoverflow.com/questions/30675654/elasticsearch-spring-boot-integration-test
+
+
+## kafka embedded server for spring integration testing ##
+
+https://blog.mimacom.com/testing-apache-kafka-with-spring-boot/
+
+
+## Redis Spring integration testing ##
+
+https://www.baeldung.com/spring-embedded-redis
+
+https://stackoverflow.com/questions/32524194/embedded-redis-for-spring-boot
+
