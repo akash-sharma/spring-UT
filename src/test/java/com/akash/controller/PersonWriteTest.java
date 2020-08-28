@@ -1,27 +1,11 @@
 package com.akash.controller;
 
-import com.akash.SpringUtApplication;
-import org.cassandraunit.spring.CassandraUnit;
-import org.cassandraunit.spring.CassandraUnitTestExecutionListener;
+import com.akash.AbstractApplicationTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import static org.springframework.test.context.TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS;
-
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = SpringUtApplication.class)
-@ActiveProfiles("test")
-@TestExecutionListeners(
-    listeners = CassandraUnitTestExecutionListener.class,
-    mergeMode = MERGE_WITH_DEFAULTS)
-@CassandraUnit
-public class PersonWriteTest {
+public class PersonWriteTest extends AbstractApplicationTest {
 
   @Autowired private PersonController personController;
 
