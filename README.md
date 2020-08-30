@@ -59,12 +59,19 @@ https://www.baeldung.com/spring-embedded-redis
 https://stackoverflow.com/questions/32524194/embedded-redis-for-spring-boot
 
 
+###  Aerospike Mocking for Spring UT (HashMap mocking implementation for aerospike) ###
+
+https://github.com/srini156/mock-aerospike
+
+
 ##### Mockito argThat example #####
 
 ```Java
 FileFilter fileFilter = Mockito.mock(FileFilter.class);
 ArgumentMatcher<File> hasLuck = file -> file.getName().endsWith("luck");
+
 Mockito.when(fileFilter.accept(argThat(hasLuck))).thenReturn(true);
+
 assertFalse(fileFilter.accept(new File("/deserve")));
 assertTrue(fileFilter.accept(new File("/deserve/luck")));
 ```
