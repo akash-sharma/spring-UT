@@ -8,13 +8,13 @@ junit jupiter version --> 5.3.2
 maven-surefire-plugin --> 2.22.2
 
 
-#### links ####
+#### Reuse Spring context for multiple test classes ####
 https://rieckpil.de/improve-build-times-with-context-caching-from-spring-test/
 
 https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#testcontext-ctx-management-caching
 
 
-#### factors that determine spring context cache ####
+##### factors that determine spring context cache #####
 1. locations (from @ContextConfiguration)
 2. classes (part of @ContextConfiguration)
 3. contextInitializerClasses (from @ContextConfiguration)
@@ -27,32 +27,27 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.ht
 9. resourceBasePath (part of @WebAppConfiguration)
 
 
-
-#### Try to Avoid @MockBean with @SpringBootTest or Use Abstract test classes with @SpringBootTest ####
-
-
-#### Avoid @DirtiesContext ####
-
-
-#### Use below loggers to debug issue ####
-
-logging.level.org.springframework.test.context.cache=DEBUG
+##### Rules to Remember #####
+1. Try to Avoid @MockBean with @SpringBootTest or Use Abstract test classes with @SpringBootTest
+2. Avoid @DirtiesContext
+3. Use below loggers to debug issue : logging.level.org.springframework.test.context.cache=DEBUG
 
 
 
-#### elastic search embedded server for spring integration testing ####
+
+### Elastic Search embedded server for spring integration testing ###
 
 https://www.thetopsites.net/article/52581662.shtml
 
 https://stackoverflow.com/questions/30675654/elasticsearch-spring-boot-integration-test
 
 
-#### kafka embedded server for spring integration testing ####
+### Kafka Embedded server for spring integration testing ###
 
 https://blog.mimacom.com/testing-apache-kafka-with-spring-boot/
 
 
-#### Redis Spring integration testing ####
+### Redis Spring integration testing ###
 
 https://www.baeldung.com/spring-embedded-redis
 
