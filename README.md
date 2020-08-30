@@ -33,33 +33,56 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.ht
 3. Use below loggers to debug issue : logging.level.org.springframework.test.context.cache=DEBUG
 
 
+### Cassandra embedded server for sping UT ###
+
+https://www.linkedin.com/pulse/unit-testing-using-embedded-cassandra-raghunandan-gupta
+
+https://www.codesandnotes.be/2015/02/26/cassandraunit-not-reloaded-making-cassandra-testing-faster/
 
 
-### Elastic Search embedded server for spring integration testing ###
+### Elastic Search embedded server for spring UT ###
 
 https://www.thetopsites.net/article/52581662.shtml
 
 https://stackoverflow.com/questions/30675654/elasticsearch-spring-boot-integration-test
 
 
-### Kafka Embedded server for spring integration testing ###
+### Kafka Embedded server for spring UT ###
 
 https://blog.mimacom.com/testing-apache-kafka-with-spring-boot/
 
 
-### Redis Spring integration testing ###
+### Redis Spring UT ###
 
 https://www.baeldung.com/spring-embedded-redis
 
 https://stackoverflow.com/questions/32524194/embedded-redis-for-spring-boot
 
 
-#### Mockito argThat example ####
+##### Mockito argThat example #####
 
 ```Java
-FileFilter fileFilter = mock(FileFilter.class);
+FileFilter fileFilter = Mockito.mock(FileFilter.class);
 ArgumentMatcher<File> hasLuck = file -> file.getName().endsWith("luck");
-when(fileFilter.accept(argThat(hasLuck))).thenReturn(true);
+Mockito.when(fileFilter.accept(argThat(hasLuck))).thenReturn(true);
 assertFalse(fileFilter.accept(new File("/deserve")));
 assertTrue(fileFilter.accept(new File("/deserve/luck")));
 ```
+
+
+##### Notes #####
+1. @RunWith(SpringRunner.class)
+ If a JUnit class or its parent class is annotated with @RunWith, JUnit framework invokes the
+ specified class as a test runner instead of running the default runner. A Runner class is
+ responsible to run JUnit test, typically by reflection.
+
+ SpringRunner provides support for loading a Spring ApplicationContext and having
+ beans @Autowired into your test instance and many other things.
+
+2. @SpringBootTest(classes = SpringUtApplication.class)
+
+ It looks for a class annotated with @SpringBootConfiguration from which it then reads the
+ configuration to create an application context. This class is usually our main application class
+ since the @SpringBootApplication annotation includes the @SpringBootConfiguration annotation.
+
+3. Use @MockBean to mock a bean via SpringRunner
