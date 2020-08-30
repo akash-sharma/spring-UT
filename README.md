@@ -34,6 +34,7 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.ht
 
 
 ### Cassandra embedded server for sping UT ###
+(Already implemented in this project)
 
 https://www.linkedin.com/pulse/unit-testing-using-embedded-cassandra-raghunandan-gupta
 
@@ -59,10 +60,13 @@ https://www.baeldung.com/spring-embedded-redis
 https://stackoverflow.com/questions/32524194/embedded-redis-for-spring-boot
 
 
-###  Aerospike Mocking for Spring UT (HashMap mocking implementation for aerospike) ###
+###  Aerospike Mocking for Spring UT ###
+(HashMap mocking implementation for aerospike)
 
 https://github.com/srini156/mock-aerospike
 
+
+### Notes ###
 
 ##### Mockito argThat example #####
 
@@ -77,7 +81,8 @@ assertTrue(fileFilter.accept(new File("/deserve/luck")));
 ```
 
 
-##### Notes #####
+##### Points to Remember #####
+
 1. @RunWith(SpringRunner.class)
  If a JUnit class or its parent class is annotated with @RunWith, JUnit framework invokes the
  specified class as a test runner instead of running the default runner. A Runner class is
