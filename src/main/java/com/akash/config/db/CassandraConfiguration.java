@@ -17,13 +17,17 @@ import org.springframework.data.cassandra.core.mapping.SimpleUserTypeResolver;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 /**
- * datastax oss vs dse
+ * com.datastax.oss.driver.api.core.Session vs com.datastax.driver.core.Session </br> datastax oss
+ * vs dse </br> Which one to use ? </br>
  * https://support.datastax.com/hc/en-us/articles/115005513246-DataStax-Drivers-for-Apache-Cassandra-VS-DataStax-DSE-Drivers
  *
- * https://stackoverflow.com/questions/48571009/cassandra-java-driver-set-global-consistency-level
+ * <p>How to configure cassandra Session beans and Repository
+ * https://docs.spring.io/spring-data/cassandra/docs/current/reference/html/#reference
  *
+ * <p>How to set consitency level in cassandra queries
+ *
+ * <p>https://stackoverflow.com/questions/48571009/cassandra-java-driver-set-global-consistency-level
  */
-
 @Configuration
 @EnableCassandraRepositories(basePackages = {"com.akash.cassandra.entity"})
 public class CassandraConfiguration {

@@ -24,7 +24,8 @@ public class NovelDaoImpl implements NovelDao {
 
   @Autowired private CqlSession cqlSession;
 
-  private static final QueryOptions QUERY_OPTIONS = QueryOptions.builder()
+  private static final QueryOptions QUERY_OPTIONS =
+      QueryOptions.builder()
           .consistencyLevel(ConsistencyLevel.LOCAL_QUORUM)
           .timeout(Duration.ofSeconds(10))
           .pageSize(10)
