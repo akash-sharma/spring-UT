@@ -35,7 +35,11 @@ public abstract class AbstractApplicationTest {
   private static String keySpace = "csd";
 
   @BeforeAll
-  public static void startCassandraEmbedded() {
+  protected static void beforeAllTests() {
+    startCassandraEmbedded();
+  }
+
+  private static void startCassandraEmbedded() {
 
     if (session == null) {
       synchronized (LOCK) {
@@ -65,7 +69,11 @@ public abstract class AbstractApplicationTest {
   }
 
   @AfterAll
-  protected static void clearAllTables() {
+  protected static void afterAllTests() {
+    clearAllTables();
+  }
+
+  private static void clearAllTables() {
     Collection<TableMetadata> tables = cluster.getMetadata().getKeyspace(keySpace).getTables();
     tables.forEach(table -> session.execute(QueryBuilder.truncate(table)));
   }

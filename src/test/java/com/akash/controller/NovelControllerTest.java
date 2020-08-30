@@ -22,7 +22,8 @@ public class NovelControllerTest extends AbstractApplicationTest {
     final String author = "A1";
     final String category = "C1";
     novelController.save(author, category);
-    List<Novel> allByCategoryAndAuthor = novelDao.findAllByCategoryAndAuthor(category, author);
+    final List<Novel> allByCategoryAndAuthor =
+        novelDao.findAllByCategoryAndAuthor(category, author);
     Assertions.assertFalse(CollectionUtils.isEmpty(allByCategoryAndAuthor));
     final Novel novel = allByCategoryAndAuthor.get(0);
     Assertions.assertNotNull(novel);
@@ -37,7 +38,7 @@ public class NovelControllerTest extends AbstractApplicationTest {
     final String category = "C2";
     final String genre = "fun";
 
-    Novel novel = new Novel();
+    final Novel novel = new Novel();
     novel.setAuthor(author);
     novel.setCategory(category);
     novel.setGenre(genre);
