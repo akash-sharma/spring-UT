@@ -32,6 +32,12 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.ht
 2. Avoid @DirtiesContext
 3. Use below loggers to debug issue : logging.level.org.springframework.test.context.cache=DEBUG
 
+### Mocking RestTemplate via MockRestServiceServer ###
+
+https://www.baeldung.com/spring-mock-rest-template
+
+https://www.baeldung.com/restclienttest-in-spring-boot
+
 
 ### Cassandra embedded server for sping UT ###
 (Already implemented in this project)
