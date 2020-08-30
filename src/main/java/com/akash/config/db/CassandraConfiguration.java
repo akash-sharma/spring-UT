@@ -20,7 +20,7 @@ import org.springframework.data.cassandra.repository.config.EnableCassandraRepos
  * datastax oss vs dse
  * https://support.datastax.com/hc/en-us/articles/115005513246-DataStax-Drivers-for-Apache-Cassandra-VS-DataStax-DSE-Drivers
  *
- * TODO : retry policy , TokenAwarePolicy
+ * https://stackoverflow.com/questions/48571009/cassandra-java-driver-set-global-consistency-level
  *
  */
 
