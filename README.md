@@ -61,9 +61,10 @@ https://stackoverflow.com/questions/32524194/embedded-redis-for-spring-boot
 
 #### Mockito argThat example ####
 
+```Java
 FileFilter fileFilter = mock(FileFilter.class);
 ArgumentMatcher<File> hasLuck = file -> file.getName().endsWith("luck");
 when(fileFilter.accept(argThat(hasLuck))).thenReturn(true);
 assertFalse(fileFilter.accept(new File("/deserve")));
 assertTrue(fileFilter.accept(new File("/deserve/luck")));
-
+```
