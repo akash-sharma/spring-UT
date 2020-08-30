@@ -1,16 +1,19 @@
 package com.akash.cassandra.dao;
 
 import com.akash.cassandra.entity.Novel;
+import com.datastax.oss.driver.api.core.ConsistencyLevel;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.cassandra.core.CassandraOperations;
+import org.springframework.data.cassandra.core.cql.QueryOptions;
 import org.springframework.data.cassandra.core.query.Criteria;
 import org.springframework.data.cassandra.core.query.Query;
 import org.springframework.data.cassandra.core.query.Update;
 import org.springframework.stereotype.Repository;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +24,21 @@ public class NovelDaoImpl implements NovelDao {
 
   @Autowired private CqlSession cqlSession;
 
+  private static final QueryOptions QUERY_OPTIONS = QueryOptions.builder()
+          .consistencyLevel(ConsistencyLevel.LOCAL_QUORUM)
+          .timeout(Duration.ofSeconds(10))
+          .pageSize(10)
+          .tracing(true)
+          .build();
+
   // query via spring template
   // select * from novel where category=?1 and author=?2
   @Override
   public List<Novel> findAllByCategoryAndAuthor(String category, String author) {
     return cassandraTemplate.select(
         Query.query(Criteria.where("category").is(category))
-            .and(Criteria.where("author").is(author)),
+            .and(Criteria.where("author").is(author))
+            .queryOptions(QUERY_OPTIONS),
         Novel.class);
   }
 
@@ -58,7 +69,8 @@ public class NovelDaoImpl implements NovelDao {
         Query.query(Criteria.where("category").is(novel.getCategory()))
             .and(Criteria.where("author").is(novel.getAuthor()))
             .and(Criteria.where("genre").is(novel.getGenre()))
-            .and(Criteria.where("name").is(novel.getName())),
+            .and(Criteria.where("name").is(novel.getName()))
+            .queryOptions(QUERY_OPTIONS),
         Update.empty().increment("salecount"),
         Novel.class);
   }

@@ -16,6 +16,14 @@ import org.springframework.data.cassandra.core.mapping.CassandraMappingContext;
 import org.springframework.data.cassandra.core.mapping.SimpleUserTypeResolver;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
+/**
+ * datastax oss vs dse
+ * https://support.datastax.com/hc/en-us/articles/115005513246-DataStax-Drivers-for-Apache-Cassandra-VS-DataStax-DSE-Drivers
+ *
+ * TODO : retry policy , TokenAwarePolicy
+ *
+ */
+
 @Configuration
 @EnableCassandraRepositories(basePackages = {"com.akash.cassandra.entity"})
 public class CassandraConfiguration {
