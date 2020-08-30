@@ -38,6 +38,11 @@ https://www.baeldung.com/spring-mock-rest-template
 
 https://www.baeldung.com/restclienttest-in-spring-boot
 
+### Spring boot with H2 ###
+(Already implemented in this project)
+
+https://www.baeldung.com/spring-boot-h2-database
+
 
 ### Cassandra embedded server for sping UT ###
 (Already implemented in this project)
